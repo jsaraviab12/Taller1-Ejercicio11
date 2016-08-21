@@ -5,6 +5,8 @@
  */
 package newpackage;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jesus
@@ -34,12 +36,12 @@ public class Interfaz11 extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtGine = new javax.swing.JTextField();
+        txtTrau = new javax.swing.JTextField();
+        txtPedia = new javax.swing.JTextField();
         txtPresu = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        cmdCalcular = new javax.swing.JButton();
+        cmdBOrrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,27 +72,32 @@ public class Interfaz11 extends javax.swing.JFrame {
         jLabel5.setText("Traumatología");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 70, -1));
+        txtGine.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        jPanel1.add(txtGine, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 70, -1));
 
-        jTextField2.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 70, -1));
+        txtTrau.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        jPanel1.add(txtTrau, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 70, -1));
 
-        jTextField3.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 70, -1));
+        txtPedia.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        jPanel1.add(txtPedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 70, -1));
 
         txtPresu.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
         jPanel1.add(txtPresu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 120, -1));
 
-        jButton1.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 0));
-        jButton1.setText("Calcular");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
+        cmdCalcular.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        cmdCalcular.setForeground(new java.awt.Color(0, 153, 0));
+        cmdCalcular.setText("Calcular");
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(153, 0, 0));
-        jButton2.setText("Borrar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, -1, -1));
+        cmdBOrrar.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        cmdBOrrar.setForeground(new java.awt.Color(153, 0, 0));
+        cmdBOrrar.setText("Borrar");
+        jPanel1.add(cmdBOrrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,6 +112,29 @@ public class Interfaz11 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
+       String res1,res2;
+       double pre,op1, op2;
+       if (txtPresu.getText().trim().isEmpty() ){
+             JOptionPane.showMessageDialog(this,"Por favor digiete la cantidad de fotos a revelar","Error",JOptionPane.ERROR_MESSAGE);
+            txtPresu.requestFocusInWindow();
+       }else{
+           try{
+               pre= Double.parseDouble(txtPresu.getText());
+                 op1=(pre*40)/100;
+                 op2=(pre*30)/100;
+                 res1=String.valueOf(op1);
+                 res2=String.valueOf(op2);
+                 txtGine.setText(res1);
+                 txtTrau.setText(res2);
+                 txtPedia.setText(res2);
+           } catch (Exception e){
+               JOptionPane.showMessageDialog(this,"Ingrese numero valido","Error", JOptionPane.ERROR_MESSAGE);
+            txtPresu.requestFocusInWindow();
+                   }
+       }
+    }//GEN-LAST:event_cmdCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,8 +172,8 @@ public class Interfaz11 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton cmdBOrrar;
+    private javax.swing.JButton cmdCalcular;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -151,9 +181,9 @@ public class Interfaz11 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtGine;
+    private javax.swing.JTextField txtPedia;
     private javax.swing.JTextField txtPresu;
+    private javax.swing.JTextField txtTrau;
     // End of variables declaration//GEN-END:variables
 }
