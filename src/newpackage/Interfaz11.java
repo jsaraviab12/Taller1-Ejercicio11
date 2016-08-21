@@ -73,15 +73,35 @@ public class Interfaz11 extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
         txtGine.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        txtGine.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtGineKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtGine, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 70, -1));
 
         txtTrau.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        txtTrau.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTrauKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtTrau, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 70, -1));
 
         txtPedia.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
+        txtPedia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPediaKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtPedia, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 70, -1));
 
         txtPresu.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 14)); // NOI18N
+        txtPresu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPresuKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtPresu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 120, -1));
 
         cmdCalcular.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 11)); // NOI18N
@@ -122,7 +142,7 @@ public class Interfaz11 extends javax.swing.JFrame {
        String res1,res2;
        double pre,op1, op2;
        if (txtPresu.getText().trim().isEmpty() ){
-             JOptionPane.showMessageDialog(this,"Por favor digiete la cantidad de fotos a revelar","Error",JOptionPane.ERROR_MESSAGE);
+             JOptionPane.showMessageDialog(this,"Por favor digiete el valor del presupuesto","Error",JOptionPane.ERROR_MESSAGE);
             txtPresu.requestFocusInWindow();
        }else{
            try{
@@ -148,6 +168,47 @@ public class Interfaz11 extends javax.swing.JFrame {
         txtTrau.setText("");
         txtPresu.requestFocusInWindow();
     }//GEN-LAST:event_cmdBOrrarActionPerformed
+
+    private void txtPresuKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPresuKeyTyped
+        char c=evt.getKeyChar();
+             
+         
+          if(!Character.isDigit(evt.getKeyChar()) &&evt.getKeyChar()!='.'){ 
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+          }
+    }//GEN-LAST:event_txtPresuKeyTyped
+
+    private void txtGineKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGineKeyTyped
+        char c=evt.getKeyChar();
+             
+         
+        
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+    }//GEN-LAST:event_txtGineKeyTyped
+
+    private void txtTrauKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTrauKeyTyped
+        char c=evt.getKeyChar();
+             
+         
+        
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+    }//GEN-LAST:event_txtTrauKeyTyped
+
+    private void txtPediaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPediaKeyTyped
+        char c=evt.getKeyChar();
+             
+         
+        
+              getToolkit().beep(); 
+               
+              evt.consume(); 
+    }//GEN-LAST:event_txtPediaKeyTyped
 
     /**
      * @param args the command line arguments
